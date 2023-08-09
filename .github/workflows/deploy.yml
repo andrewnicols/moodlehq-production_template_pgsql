@@ -30,7 +30,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}
-        REGISTRY_ALIAS: andrewnicols
+        REGISTRY_ALIAS: y9g5h2p2/andrewnicols
         REPOSITORY: moodlehq/production_template_pgsql
         IMAGE_TAG: latest
       run: |
