@@ -5,6 +5,10 @@
 # Note: This line must come before the FROM line.
 ARG PHP_EXTENSIONS="apcu pgsql bz2 imagick igbinary gd intl imap"
 
+# Install the cron service
+# Note: This line must come before the FROM line.
+ARG INSTALL_CRON=1
+
 ############################################################################
 # Source image selection
 ############################################################################
@@ -46,7 +50,7 @@ ENV PHP_INI_POST_MAX_SIZE=206M
 
 # By default it does not allow overlappign cron jobs, but Moodle benefits
 # from these.
-ENV SUPERCRONIC_OPTIONS="=overlapping"
+ENV SUPERCRONIC_OPTIONS="-overlapping"
 
 # Configure the Moodle cron job to run regularly.
 # This configuration runs every 15 seconds, but you may need to tailor to
